@@ -1,0 +1,37 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav position="end" #drawer class="sidenav" fixedInViewport="true" style="background-color:#19171c"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar style="background-color: #19171c;color:#fff">Menu</mat-toolbar>
+    <mat-nav-list>
+      <div fxFlexAlign="end center"  class="nav-a-tabs">
+        <div class="item-a"> 
+            <a  mat-list-item href="#">الرئيسية<i style="margin-left: 19px;" id="icon-nav" class="fa fa-home" aria-hidden="true"></i></a>
+            <a  mat-list-item href="#">اخر الحلقات</a>
+            <a  mat-list-item href="#">الأكثر شعبية<i  style="color:white" class="fa fa-globe" aria-hidden="true"></i></a>
+            <a  mat-list-item href="" >افضل الأنميات<i  style="color:white" class="fa fa-globe" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" style="background-color:#4b367c">
+          <span class="toolbar-filler"></span>
+          <span>angularwork</span>
+          <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+<!-- *ngIf="isHandset$ | async" -->
